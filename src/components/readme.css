@@ -1,0 +1,73 @@
+/* HEADER */
+.readme-header {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.readme-title {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.6rem, 5vw, 3.8rem);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: #e05a82;
+}
+
+.readme-subtitle {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.85rem;
+  color: rgba(13, 13, 13, 0.45);
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+/* SECTION */
+.readme-section {
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(13, 13, 13, 0.08);
+  display: grid;
+  gap: 16px;
+}
+
+.readme-section-title {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(13, 13, 13, 0.45);
+}
+
+.readme-content {
+  display: grid;
+  gap: 16px;
+}
+
+/* TEXT */
+.readme-paragraph {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  max-width: 640px;
+  color: #0d0d0d;
+}
+
+/* IMAGE */
+.readme-image {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(13, 13, 13, 0.12);
+  border: none;
+}
+
+/* CODE BLOCK */
+.readme-code {
+  margin: 18px 0;
+  padding: 18px 20px;
+  border-radius: 10px;
+  background: rgba(13, 13, 13, 0.04);
+  border: 1px solid rgba(13, 13, 13, 0.08);
+  overflow-x: auto;
+}

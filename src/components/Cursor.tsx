@@ -1,21 +1,26 @@
 import { useEffect, useRef } from 'react'
 
 export default function Cursor() {
-  const dot  = useRef<HTMLDivElement>(null)
+  const dot = useRef<HTMLDivElement>(null)
   const ring = useRef<HTMLDivElement>(null)
-  const pos  = useRef({ x: 0, y: 0 })
+  const pos = useRef({ x: 0, y: 0 })
   const ring_pos = useRef({ x: 0, y: 0 })
-  const raf  = useRef<number>()
-
+  const raf = useRef<number | null>(null)
   useEffect(() => {
-    const onMove = (e: MouseEvent) => { pos.current = { x: e.clientX, y: e.clientY } }
-    const onEnter = () => { ring.current?.setAttribute('data-hover', 'true') }
-    const onLeave = () => { ring.current?.removeAttribute('data-hover') }
+    const onMove = (e: MouseEvent) => {
+      pos.current = { x: e.clientX, y: e.clientY }
+    }
+    const onEnter = () => {
+      ring.current?.setAttribute('data-hover', 'true')
+    }
+    const onLeave = () => {
+      ring.current?.removeAttribute('data-hover')
+    }
 
     window.addEventListener('mousemove', onMove)
 
     const addHover = () => {
-      document.querySelectorAll('a,button,[data-cursor]').forEach(el => {
+      document.querySelectorAll('a,button,[data-cursor]').forEach((el) => {
         el.addEventListener('mouseenter', onEnter)
         el.addEventListener('mouseleave', onLeave)
       })
@@ -46,21 +51,38 @@ export default function Cursor() {
 
   return (
     <>
-      <div ref={dot} style={{
-        position: 'fixed', top: 0, left: 0, zIndex: 9999,
-        width: 8, height: 8, borderRadius: '50%',
-        background: '#d4909f', pointerEvents: 'none',
-        transition: 'opacity 0.2s',
-        willChange: 'transform',
-      }} />
-      <div ref={ring} style={{
-        position: 'fixed', top: 0, left: 0, zIndex: 9998,
-        width: 40, height: 40, borderRadius: '50%',
-        border: '1.5px solid rgba(212,144,159,0.5)',
-        pointerEvents: 'none',
-        transition: 'width 0.25s, height 0.25s, border-color 0.25s, margin 0.25s',
-        willChange: 'transform',
-      }}
+      <div
+        ref={dot}
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          zIndex: 9999,
+          width: 8,
+          height: 8,
+          borderRadius: '50%',
+          background: '#d4909f',
+          pointerEvents: 'none',
+          transition: 'opacity 0.2s',
+          willChange: 'transform',
+        }}
+      />
+      <div
+        ref={ring}
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          zIndex: 9998,
+          width: 40,
+          height: 40,
+          borderRadius: '50%',
+          border: '1.5px solid rgba(212,144,159,0.5)',
+          pointerEvents: 'none',
+          transition:
+            'width 0.25s, height 0.25s, border-color 0.25s, margin 0.25s',
+          willChange: 'transform',
+        }}
         onTransitionEnd={() => {}}
       />
       <style>{`
